@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (points >= 100)
+        if (points >= 5)
         {
             Congrates.SetActive(true);
             Time.timeScale = 0f;
@@ -92,5 +92,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         points = 0;
         prevpoint = -1;
+    }
+
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene("Main Scene");
     }
 }

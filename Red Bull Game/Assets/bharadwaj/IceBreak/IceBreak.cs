@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro; // Add this at the top
+using UnityEngine.SceneManagement;
 
 
 public class IceBreakingScript : MonoBehaviour
@@ -16,12 +17,17 @@ public class IceBreakingScript : MonoBehaviour
     private bool isRevealed = false;
     public TextMeshProUGUI breakingText;
 
+    [SerializeField] private GameObject textCanvas;
+    [SerializeField] private GameObject finalCanvas;
+
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         drinkCan.SetActive(false);
         UpdateSprite();
+        textCanvas.SetActive(true);
+        finalCanvas.SetActive(false);
     }
 
     void Update()
@@ -31,6 +37,12 @@ public class IceBreakingScript : MonoBehaviour
             breakProgress -= healPerSecond * Time.deltaTime;
             breakProgress = Mathf.Clamp(breakProgress, 0, maxBreak);
             UpdateSprite();
+        }
+
+        if (breakProgress >= maxBreak)
+        {
+            textCanvas.SetActive(false);
+            finalCanvas.SetActive(true);
         }
     }
 
@@ -50,29 +62,29 @@ public class IceBreakingScript : MonoBehaviour
     }
 
     void UpdateSprite()
-{
-    int stage = Mathf.Clamp(Mathf.RoundToInt(breakProgress), 0, breakStages.Length - 1);
-    sr.sprite = breakStages[stage];
+    {
+        int stage = Mathf.Clamp(Mathf.RoundToInt(breakProgress), 0, breakStages.Length - 1);
+        sr.sprite = breakStages[stage];
 
-    float remaining = maxBreak - breakProgress;
+        float remaining = maxBreak - breakProgress;
 
-    if (breakingText != null)
-        breakingText.text = "Remaining Break Amount: " + remaining.ToString("F2");
+        if (breakingText != null)
+            breakingText.text = "Remaining Break Amount: " + remaining.ToString("F2");
 
-    Debug.Log("Remaining Break Amount: " + remaining.ToString("F2"));
+        Debug.Log("Remaining Break Amount: " + remaining.ToString("F2"));
 
-    if (breakingText != null)
-{
-    breakingText.text = "Breaking Remaining: " + Mathf.CeilToInt(remaining);
+        if (breakingText != null)
+        {
+            breakingText.text = "Breaking Remaining: " + Mathf.CeilToInt(remaining);
 
-    // Change color as player gets closer to success
-    if (remaining <= 1f)
-        breakingText.color = Color.red;
-    else if (remaining <= 3f)
-        breakingText.color = Color.yellow;
-    else
-        breakingText.color = Color.cyan;
-}
+            // Change color as player gets closer to success
+            if (remaining <= 1f)
+                breakingText.color = Color.red;
+            else if (remaining <= 3f)
+                breakingText.color = Color.yellow;
+            else
+                breakingText.color = Color.cyan;
+    }
 
 }
 
@@ -83,5 +95,8 @@ public class IceBreakingScript : MonoBehaviour
         drinkCan.SetActive(true);
     }
 
-
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene("Main Scene");
+    }
 }
