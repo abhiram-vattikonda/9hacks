@@ -60,6 +60,20 @@ public class IceBreakingScript : MonoBehaviour
         breakingText.text = "Remaining Break Amount: " + remaining.ToString("F2");
 
     Debug.Log("Remaining Break Amount: " + remaining.ToString("F2"));
+
+    if (breakingText != null)
+{
+    breakingText.text = "Breaking Remaining: " + Mathf.CeilToInt(remaining);
+
+    // Change color as player gets closer to success
+    if (remaining <= 1f)
+        breakingText.color = Color.red;
+    else if (remaining <= 3f)
+        breakingText.color = Color.yellow;
+    else
+        breakingText.color = Color.cyan;
+}
+
 }
 
     void RevealCan()
