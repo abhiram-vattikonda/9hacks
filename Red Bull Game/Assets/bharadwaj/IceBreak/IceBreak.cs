@@ -72,8 +72,6 @@ public class IceBreakingScript : MonoBehaviour
         if (breakingText != null)
             breakingText.text = "Remaining Break Amount: " + remaining.ToString("F2");
 
-        Debug.Log("Remaining Break Amount: " + remaining.ToString("F2"));
-
         if (breakingText != null)
         {
             breakingText.text = "Breaking Remaining: " + Mathf.CeilToInt(remaining);
