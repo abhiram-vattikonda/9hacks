@@ -30,7 +30,8 @@ public class Portalmanager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!enterText)
-            enterText.gameObject.SetActive(false);
+        enterText.gameObject.SetActive(false);
     }
+
+
 }

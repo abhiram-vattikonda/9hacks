@@ -16,6 +16,7 @@ public class MainPlayerMovemetn : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Time.timeScale = 1.0f;
     }
 
 
