@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     public void ReTry()
     {
-        SceneManager.LoadScene("GAME");
+        SceneManager.LoadScene("FlappyBird");
         Time.timeScale = 1.0f;
         points = 0;
         prevpoint = -1;

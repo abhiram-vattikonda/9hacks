@@ -7,9 +7,11 @@ public class MainPlayerMovemetn : MonoBehaviour
     private Rigidbody2D rb;
 
 
-    private float movementSpeed = 3f;
-    private float jumpSpeed  = 500f;
+    private float movementSpeed = 5f;
+    private float jumpSpeed  = 650f;
     private bool isGrounded = true;
+
+    public bool isNearPortal = false;
 
     private void Start()
     {
@@ -34,13 +36,13 @@ public class MainPlayerMovemetn : MonoBehaviour
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             transform.localRotation = new Quaternion(0, 180, 0, 0);
         }
-        if (Input.GetKey(KeyCode.S))
+        /*if (Input.GetKey(KeyCode.S))
         {
             if (!isGrounded)
             {
                 rb.gravityScale += 2;
             }
-        }
+        }*/
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
