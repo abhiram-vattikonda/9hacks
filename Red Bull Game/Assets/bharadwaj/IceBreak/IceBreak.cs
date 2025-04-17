@@ -43,6 +43,7 @@ public class IceBreakingScript : MonoBehaviour
         {
             textCanvas.SetActive(false);
             finalCanvas.SetActive(true);
+            GameManagerMain.Instance.inventory[0] = true;
         }
     }
 

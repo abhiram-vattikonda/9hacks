@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         if (points >= 5)
         {
             Congrates.SetActive(true);
+            GameManagerMain.Instance.inventory[1] = true;
             Time.timeScale = 0f;
         }
 
