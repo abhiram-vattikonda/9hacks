@@ -30,7 +30,7 @@ public class MainPlayerMovemetn : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-            transform.localRotation = new Quaternion(0, 180, 0, 0);
+            transform.localRotation = new Quaternion(0, 0, 0, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {

@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class Alter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI enterText;
+    [SerializeField] private GameObject videoPlayer;
+    [SerializeField] private GameObject Canvas;
 
     private void Start()
     {
@@ -27,7 +29,11 @@ public class Alter : MonoBehaviour
             }
 
             if (count >= 2)
+            {
+                videoPlayer.SetActive(true);
+                Canvas.SetActive(false);
                 Debug.Log("You did it!!!!!!");
+            }
             else
                 Debug.Log("Not yet you don't");
         }
