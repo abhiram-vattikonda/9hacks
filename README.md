@@ -19,7 +19,7 @@ This game was developed in just 12 hours during a hackathon by my team and me. I
 ## 🕹️ Controls
 
 * **Movement**: W / A / S / D or Arrow Keys
-* **Action**: Spacebar or Left Mouse Button
+* **Jump**: Spacebar
 * **Pause**: Escape Key
 
 ## 🛠️ Installation & Running the Game
